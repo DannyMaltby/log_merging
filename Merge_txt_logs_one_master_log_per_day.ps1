@@ -5,7 +5,7 @@ $DateHumanReadable = Get-Date -Format "yyyyMMdd dddd dd-MM"
 #Where the file is written to
 $DestinationFile = "{Desired destination file}"
 
-#Specify the files
+#Specify the files, this looks for files that include todays date in the format -yyyyMMdd
 $TargetDirectory = "{Top folder of all desired log files}"
 $Files = (Get-ChildItem -Path $TargetDirectory -Recurse | where {$_.name -Like "*-$Date*"}).FullName
 
