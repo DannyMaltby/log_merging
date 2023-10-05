@@ -1,16 +1,16 @@
 #Where the file is written to
-$DestinationFile = "C:\Salamander\accounts\All Sites Accounts\Staff Accounts.csv"
+$DestinationFile = "{Desired path of the output file}"
 
-#Specify the files
-$TargetDirectory = "C:\Salamander\accounts"
+#Specify the files, this looks for files that includes the phrase -StaffMember
+$TargetDirectory = "{Top directory where all the log files are stored}"
 $Files = (Get-ChildItem -Path $TargetDirectory -Recurse | where {$_.name -Like "*-StaffMember*"}).FullName
 
 #Create File
 $Content = foreach ($File in $Files)
 {
-	Import-CSV $File | Select-Object *,@{Name="{identifier column for which is thorigin file}";Expression={"$File"}} | Export-CSV $DestinationFile -NoTypeInformation -Force -Append
+	Import-CSV $File | Select-Object *,@{Name="{identifier column for which is the origin file}";Expression={"$File"}} | Export-CSV $DestinationFile -NoTypeInformation -Force -Append
 }
 
-#Fix File
+#Tidy up output file
 $RemoveDuplicates = Import-CSV $DestinationFile | Sort-Object * -Unique
 $RemoveDuplicates | Export-CSV $DestinationFile -NoTypeInformation -Force
