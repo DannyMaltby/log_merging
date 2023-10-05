@@ -3,7 +3,7 @@ $Date = Get-Date -Format "yyyyMMdd"
 $DateHumanReadable = Get-Date -Format "yyyyMMdd dddd dd-MM"
 
 #Where the file is written to
-$DestinationFile = "{Desired destination file path, with desired file name}"
+$DestinationFile = "{Desired destination file path, with desired file name and extension}"
 
 #Specify the files, this looks for files that include todays date in the format -yyyyMMdd
 $TargetDirectory = "{Path to top folder of all desired log files}"
