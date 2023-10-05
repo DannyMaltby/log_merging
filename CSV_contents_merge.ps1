@@ -8,7 +8,7 @@ $Files = (Get-ChildItem -Path $TargetDirectory -Recurse | where {$_.name -Like "
 #Create File
 $Content = foreach ($File in $Files)
 {
-	Import-CSV $File | Select-Object *,@{Name="Site";Expression={"$File"}} | Export-CSV $DestinationFile -NoTypeInformation -Force -Append
+	Import-CSV $File | Select-Object *,@{Name="{identifier column for which is thorigin file}";Expression={"$File"}} | Export-CSV $DestinationFile -NoTypeInformation -Force -Append
 }
 
 #Fix File
