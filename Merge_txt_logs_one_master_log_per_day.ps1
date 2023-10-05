@@ -3,10 +3,10 @@ $Date = Get-Date -Format "yyyyMMdd"
 $DateHumanReadable = Get-Date -Format "yyyyMMdd dddd dd-MM"
 
 #Where the file is written to
-$DestinationFile = "C:\Salamander\logs\All Sites Warnings\$DateHumanReadable.log"
+$DestinationFile = "{Desired destination file}"
 
 #Specify the files
-$TargetDirectory = "C:\Salamander\logs"
+$TargetDirectory = "{Top folder of all desired log files}"
 $Files = (Get-ChildItem -Path $TargetDirectory -Recurse | where {$_.name -Like "*-$Date*"}).FullName
 
 #File Merge, purge redundant information, remove timestamp, then remove duplicate lines
