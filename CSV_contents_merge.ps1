@@ -1,8 +1,8 @@
 #Where the file is written to
-$DestinationFile = "{Desired path of the output file}"
+$DestinationFile = "{Desired path of the output file, as well as desired output file name and extension}"
 
 #Specify the files, this looks for files that includes the phrase -StaffMember
-$TargetDirectory = "{Top directory where all the log files are stored}"
+$TargetDirectory = "{Path to top directory where all the log files are stored}"
 $Files = (Get-ChildItem -Path $TargetDirectory -Recurse | where {$_.name -Like "*-StaffMember*"}).FullName
 
 #Create File
